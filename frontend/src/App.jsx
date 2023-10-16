@@ -1,7 +1,10 @@
 import { Container } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header'
 import HomeScreen from "./screens/HomeScreen";
+import  Footer  from "./components/Footer";
 
 export default function App() {
   return (
@@ -12,7 +15,8 @@ export default function App() {
           <Outlet/>
         </Container>
       </main>
-
+      <Footer/>
+      <ToastContainer/>
    </>
   )
 }
