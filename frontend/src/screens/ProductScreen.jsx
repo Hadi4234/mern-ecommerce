@@ -79,9 +79,10 @@ export default function ProductScreen() {
                             <Row>
                                 <Col>Qty</Col>
                                 <Col>
+                                {/* without Number() qty will be a string */}
                                    <Form.Control as='select'
                                      value={qty} 
-                                     onChange={(e)=> setQty(e.target.value)}
+                                     onChange={(e)=> setQty(Number(e.target.value))}
                                     >
                                     {[...Array(product.countInStock).keys()].map( 
                                         (x) => (
