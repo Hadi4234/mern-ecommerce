@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header'
 import HomeScreen from "./screens/HomeScreen";
 import  Footer  from "./components/Footer";
+import {logout} from "./slices/authSlice.js";
 
 export default function App() {
   const dispatch = useDispatch();

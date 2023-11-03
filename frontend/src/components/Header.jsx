@@ -32,7 +32,7 @@ export default function Header() {
         <Navbar bg='dark' variant='dark' expand="lg" collapseOnSelect>
             <Container>
                 <LinkContainer to="/">
-                <Navbar.Brand >ProShop</Navbar.Brand>
+                <Navbar.Brand >PriyoShop</Navbar.Brand>
                 </LinkContainer>
                 {/* aria-aria-controls='basic-navbar-nav' */}
                 <Navbar.Toggle />
@@ -68,7 +68,13 @@ export default function Header() {
                   </Nav.Link>
                 </LinkContainer>
               )}
-                       
+                   {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+              )}     
                         
                     </Nav>
                 </Navbar.Collapse>

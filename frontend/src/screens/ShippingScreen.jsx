@@ -12,14 +12,14 @@ const ShippingScreen = () => {
     const[address,setAddress]=useState(shippingAddress.address || '');
     const[city,setCity]=useState(shippingAddress.city || '');
     const[postalCode,setPostalCode]=useState(shippingAddress.postalCode || '');
-    const[contry,setContry]=useState(shippingAddress.contry || '');
+    const[country,setCountry]=useState(shippingAddress.country || '');
 
     const dispatch=useDispatch();
     const navigate=useNavigate();
    
     const submitHandler=(e)=>{
         e.preventDefault();
-        dispatch(saveShippingAddress({address,city,postalCode,contry}));
+        dispatch(saveShippingAddress({address,city,postalCode,country}));
         navigate('/payment');
     }
 
@@ -54,12 +54,12 @@ const ShippingScreen = () => {
                  onChange={(e)=> setPostalCode(e.target.value)} 
                 ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='contry' className='my-3'>
+            <Form.Group controlId='country' className='my-3'>
                 <Form.Label>Country</Form.Label>
                 <Form.Control type="text"
                  placeholder="Enter country"
-                 value={contry}
-                 onChange={(e)=> setContry(e.target.value)}
+                 value={country}
+                 onChange={(e)=> setCountry(e.target.value)}
                 ></Form.Control>
             </Form.Group>
             <button type='submit' className='btn btn-primary'>Continue</button>

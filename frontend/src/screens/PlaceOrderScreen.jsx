@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import CheckoutSteps from '../components/CheckoutSteps';
 import Loader from '../components/Loader';
-import { useCreateOrderMutation } from '../slices/orderApiSlice';
+import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { clearCartItems } from '../slices/cartSlice';
 
 const PlaceOrderScreen = () => {
@@ -88,7 +88,8 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x ${item.price} = $
+                          {(item.qty * (item.price * 100)) / 100}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -129,7 +130,9 @@ const PlaceOrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
-                {error && <Message variant='danger'>{error}</Message>}
+                {error && (
+                  <Message variant='danger'>{error.data.message}</Message>
+                )}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
